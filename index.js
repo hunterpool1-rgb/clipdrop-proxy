@@ -1,6 +1,7 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use(cors({
 
 app.options('*', cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
 
 const SSEMBLE_KEY = process.env.SSEMBLE_API_KEY;
 const SSEMBLE_BASE = 'https://aiclipping.ssemble.com/api/v1';
