@@ -20,7 +20,12 @@ const CLAUDE_KEY = process.env.CLAUDE_API_KEY;
 const SSEMBLE_BASE = 'https://aiclipping.ssemble.com/api/v1';
 
 app.get('/health', (req, res) => {
-  res.json({ status: 'ok', ssemble: SSEMBLE_KEY ? 'set' : 'missing', claude: CLAUDE_KEY ? 'set' : 'missing' });
+  res.json({ 
+    status: 'ok', 
+    ssemble: SSEMBLE_KEY ? 'set' : 'missing', 
+    claude: CLAUDE_KEY ? 'set' : 'missing',
+    env_keys: Object.keys(process.env).filter(k => k.includes('CLAUDE'))
+  });
 });
 
 app.post('/find-clips', async (req, res) => {
