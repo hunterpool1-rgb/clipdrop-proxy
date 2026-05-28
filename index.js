@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 const SSEMBLE_KEY = process.env.SSEMBLE_API_KEY;
-const CLAUDE_KEY = process.env.CLAUDE_API_KEY;
+const CLAUDE_KEY = process.env.CLAUDE_API_KEY || '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';
 const SSEMBLE_BASE = 'https://aiclipping.ssemble.com/api/v1';
 
 app.get('/health', (req, res) => {
